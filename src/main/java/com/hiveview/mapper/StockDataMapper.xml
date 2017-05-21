@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hiveview.dao.StockDataMapperDao" >
+
+  <resultMap id="BaseResultMap" type="com.hiveview.entity.StockData" >
+    <id column="id" property="id" />
+    <result column="product_id" property="productId"  />
+    <result column="price" property="price"  />
+    <result column="change_quantity" property="changeQuantity"  />
+    <result column="buy_price" property="buyPrice"  />
+    <result column="buy_amount" property="buyAmount"  />
+    <result column="sell_price" property="sellPrice"  />
+    <result column="sell_amount" property="sellAmount" />
+    <result column="trade_amount" property="tradeAmount"  />
+    <result column="opening_price" property="openingPrice"  />
+    <result column="last_closing_price" property="lastClosingPrice"  />
+    <result column="max_price" property="maxPrice"  />
+    <result column="min_price" property="minPrice" />
+    <result column="hold_amount" property="holdAmount"/>
+    <result column="increase_amount" property="increaseAmount"  />
+    <result column="data_time" property="dataTime"  />
+    <result column="add_time" property="addTime"  />
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    id, product_id, price, change_quantity, buy_price, buy_amount, sell_price, sell_amount, 
+    trade_amount, opening_price, last_closing_price, max_price, min_price, hold_amount, 
+    increase_amount, data_time, add_time
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap"  >
+    select 
+    <include refid="Base_Column_List" />
+    from j_stock_datas_m
+    where id = #{id}
+  </select>
+
+  <delete id="deleteByPrimaryKey"  >
+    delete from j_stock_datas_m
+    where id = #{id}
+  </delete>
+
+  <insert id="insert" parameterType="com.hiveview.entity.StockData" >
+    insert into j_stock_datas_m (
+      id,
+      product_id,
+      price,
+      change_quantity,
+      buy_price,
+      buy_amount,
+      sell_price,
+      sell_amount,
+      trade_amount,
+      opening_price,
+      last_closing_price,
+      max_price,
+      min_price,
+      hold_amount,
+      increase_amount,
+      data_time,
+      add_time
+      )
+    values (
+      #{id},
+      #{productId},
+      #{price},
+      #{changeQuantity},
+      #{buyPrice},
+      #{buyAmount},
+      #{sellPrice},
+      #{sellAmount},
+      #{tradeAmount},
+      #{openingPrice},
+      #{lastClosingPrice},
+      #{maxPrice},
+      #{minPrice,
+      #{holdAmount},
+      #{increaseAmount},
+      #{dataTime},
+      #{addTime}
+  )
+</insert>
+
+  <insert id="saveDatas" parameterType="java.util.List" >
+    insert into j_stock_datas_m (
+    id,
+    product_id,
+    price,
+    change_quantity,
+    buy_price,
+    buy_amount,
+    sell_price,
+    sell_amount,
+    trade_amount,
+    opening_price,
+    last_closing_price,
+    max_price,
+    min_price,
+    hold_amount,
+    increase_amount,
+    data_time,
+    add_time
+    )
+    <foreach open="(" close=")" collection="list" item="item" index="index"  separator="," >
+    #{id},
+    #{productId},
+    #{price},
+    #{changeQuantity},
+    #{buyPrice},
+    #{buyAmount},
+    #{sellPrice},
+    #{sellAmount},
+    #{tradeAmount},
+    #{openingPrice},
+    #{lastClosingPrice},
+    #{maxPrice},
+    #{minPrice},
+    #{holdAmount},
+    #{increaseAmount},
+    #{dataTime},
+    #{addTime}
+    </foreach>
+  </insert>
+
+  <select id="selectOneHour" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from j_stock_datas_m
+    where 1=1
+    <![CDATA[
+    and data_time <= now()
+    and data_time >= date_sub(now(), interval 1 hour)]]>
+    ORDER BY data_time ASC
+  </select>
+
+  <select id="selectOneFreshData" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from j_stock_datas_m
+    where 1=1
+    ORDER BY data_time DESC limit 1
+  </select>
+
+  <!--<update id="updateByPrimaryKey" parameterType="com.hiveview.entity.StockData" >
+    update j_stock_datas_m
+    set product_id = #{productId},
+      price = #{price},
+      change_quantity = #{changeQuantity},
+      buy_price = #{buyPrice},
+      buy_amount = #{buyAmount},
+      sell_price = #{sellPrice},
+      sell_amount = #{sellAmount},
+      trade_amount = #{tradeAmount},
+      opening_price = #{openingPrice},
+      last_closing_price = #{lastClosingPrice},
+      max_price = #{maxPrice},
+      min_price = #{minPrice},
+      hold_amount = #{holdAmount},
+      increase_amount = #{increaseAmount},
+      data_time = #{dataTime},
+      add_time = #{addTime}
+    where id = #{id}
+  </update>-->
+</mapper>
