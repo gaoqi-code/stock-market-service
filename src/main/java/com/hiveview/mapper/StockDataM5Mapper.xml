@@ -62,7 +62,7 @@
     where 1=1
     <![CDATA[
     and data_time <= now()
-    and data_time >= date_sub(now(), interval 1 hour)]]>
+    ]]>
     ORDER BY data_time ASC
   </select>
 
