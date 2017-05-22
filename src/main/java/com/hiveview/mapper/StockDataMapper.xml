@@ -73,7 +73,7 @@
       #{openingPrice},
       #{lastClosingPrice},
       #{maxPrice},
-      #{minPrice,
+      #{minPrice},
       #{holdAmount},
       #{increaseAmount},
       #{dataTime},
