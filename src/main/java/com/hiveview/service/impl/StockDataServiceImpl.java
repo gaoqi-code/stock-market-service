@@ -1,5 +1,7 @@
 package com.hiveview.service.impl;
 
+import com.hiveview.dao.StockDataM15MapperDao;
+import com.hiveview.dao.StockDataM1MapperDao;
 import com.hiveview.dao.StockDataM5MapperDao;
 import com.hiveview.dao.StockDataMapperDao;
 import com.hiveview.entity.StockData;
@@ -20,7 +22,12 @@ public class StockDataServiceImpl implements StockDataService {
     @Autowired
     private StockDataMapperDao stockDataMapperDao;
     @Autowired
+    private StockDataM1MapperDao stockDataM1MapperDao;
+    @Autowired
     private StockDataM5MapperDao stockDataM5MapperDao;
+    @Autowired
+    private StockDataM15MapperDao stockDataM15MapperDao;
+
 
     @Override
     public List<StockData> getInitDatasForM() {
@@ -29,7 +36,7 @@ public class StockDataServiceImpl implements StockDataService {
 
     @Override
     public List<StockData> getInitDatasForM1() {
-        return null;
+        return stockDataM1MapperDao.selectOneHour();
     }
 
     @Override
@@ -39,7 +46,7 @@ public class StockDataServiceImpl implements StockDataService {
 
     @Override
     public List<StockData> getInitDatasForM15() {
-        return null;
+        return stockDataM15MapperDao.selectTwoHour();
     }
 
     @Override
@@ -49,7 +56,7 @@ public class StockDataServiceImpl implements StockDataService {
 
     @Override
     public StockData getOneFreshDataForM1() {
-        return null;
+        return stockDataM1MapperDao.selectOneFreshData();
     }
 
     @Override
@@ -59,7 +66,7 @@ public class StockDataServiceImpl implements StockDataService {
 
     @Override
     public StockData getOneFreshDataForM15() {
-        return null;
+        return stockDataM15MapperDao.selectOneFreshData();
     }
 
     @Override

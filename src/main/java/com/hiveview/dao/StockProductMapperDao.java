@@ -3,6 +3,8 @@ package com.hiveview.dao;
 import com.hiveview.entity.StockProduct;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface StockProductMapperDao {
     int deleteByPrimaryKey(Integer id);
@@ -18,4 +20,6 @@ public interface StockProductMapperDao {
     int updateByPrimaryKey(StockProduct record);
 
     StockProduct getProuctByType(String type);
+
+    List<StockProduct> getSellingProducts();
 }

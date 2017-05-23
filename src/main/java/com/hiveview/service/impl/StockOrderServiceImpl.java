@@ -44,4 +44,9 @@ public class StockOrderServiceImpl implements StockOrderService {
     public List<StockOrder> getStockOrdersByStatus(int status) {
         return null;
     }
+
+    @Override
+    public List<StockOrder> getStockOrdersByUserId(int userId) {
+        return stockOrderMapperDao.getStockOrdersByUserId(userId);
+    }
 }

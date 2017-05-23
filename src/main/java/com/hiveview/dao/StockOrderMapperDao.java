@@ -17,4 +17,6 @@ public interface StockOrderMapperDao {
 
     List<StockOrder> getStockOrdersByStatus(@Param("status") int status);
 
+    List<StockOrder>  getStockOrdersByUserId(@Param("userId") int userId);
+
 }

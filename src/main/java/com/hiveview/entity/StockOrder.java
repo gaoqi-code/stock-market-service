@@ -43,9 +43,9 @@ public class StockOrder {
     private Integer modelId;
 
     private String revenueModelCode;
-
+    private String orderNo;
     private Integer orderStatus;
-
+    private int agentId;
     private BigDecimal revenueAmount;
 
     public long getId() {
@@ -190,5 +190,21 @@ public class StockOrder {
 
     public void setRevenueAmount(BigDecimal revenueAmount) {
         this.revenueAmount = revenueAmount;
+    }
+
+    public String getOrderNo() {
+        return orderNo;
+    }
+
+    public void setOrderNo(String orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    public int getAgentId() {
+        return agentId;
+    }
+
+    public void setAgentId(int agentId) {
+        this.agentId = agentId;
     }
 }

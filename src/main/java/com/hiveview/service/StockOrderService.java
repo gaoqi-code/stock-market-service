@@ -23,5 +23,6 @@ public interface StockOrderService {
 
     public List<StockOrder> getStockOrdersByStatus(int status);
 
+    public List<StockOrder> getStockOrdersByUserId(int userId);
 
 }

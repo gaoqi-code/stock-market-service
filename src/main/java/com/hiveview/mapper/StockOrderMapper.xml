@@ -18,13 +18,16 @@
     <result column="model_id" property="modelId"  />
     <result column="revenue_model_code" property="revenueModelCode"  />
     <result column="order_status" property="orderStatus"  />
+    <result column="order_no" property="orderNo"  />
     <result column="revenue_amount" property="revenueAmount" />
+    <result column="agent_id" property="agentId" />
+
   </resultMap>
 
   <sql id="Base_Column_List" >
     id, user_id, product_id, product_name, buy_price, sell_price, buy_amount, fee_amount, 
     buy_going, update_time, add_time, close_position_time, change_quantity, model_id,revenue_model_code,
-    order_status, revenue_amount
+    order_status,order_no, revenue_amount,agent_id
   </sql>
 
   <select id="selectByPrimaryKey" resultMap="BaseResultMap"  >
@@ -41,10 +44,15 @@
     where order_status = #{status}
   </select>
 
+  <select id="getStockOrdersByUserId" resultMap="BaseResultMap"  >
+    select
+    <include refid="Base_Column_List" />
+    from j_stock_orders
+    where user_id = #{userId}
+  </select>
 
   <insert id="saveStockOrder" parameterType="com.hiveview.entity.StockOrder" >
     insert into j_stock_orders (
-      id,
       user_id,
       product_id,
       product_name,
@@ -60,10 +68,11 @@
       model_id,
       revenue_model_code,
       order_status,
-      revenue_amount
+      order_no,
+      revenue_amount,
+      agent_id
       )
     values (
-      #{id},
       #{userId},
       #{productId},
       #{productName},
@@ -79,7 +88,9 @@
       #{modelId},
       #{revenueModelCode},
       #{orderStatus},
-      #{revenueAmount}
+      #{orderNo},
+      #{revenueAmount},
+      #{agentId}
       )
   </insert>
 

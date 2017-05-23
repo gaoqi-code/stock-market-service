@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hiveview.dao.StockDataMapperDao" >
+<mapper namespace="com.hiveview.dao.StockDataM15MapperDao" >
 
   <resultMap id="BaseResultMap" type="com.hiveview.entity.StockData" >
     <id column="id" property="id" />
@@ -31,17 +31,17 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap"  >
     select 
     <include refid="Base_Column_List" />
-    from j_stock_datas_m
+    from j_stock_datas_m15
     where id = #{id}
   </select>
 
   <delete id="deleteByPrimaryKey"  >
-    delete from j_stock_datas_m
+    delete from j_stock_datas_m15
     where id = #{id}
   </delete>
 
   <insert id="insert" parameterType="com.hiveview.entity.StockData" >
-    insert into j_stock_datas_m (
+    insert into j_stock_datas_m15 (
       id,
       product_id,
       price,
@@ -82,7 +82,7 @@
 </insert>
 
   <insert id="saveDatas" parameterType="java.util.List" >
-    insert into j_stock_datas_m (
+    insert into j_stock_datas_m15 (
     id,
     product_id,
     price,
@@ -122,27 +122,27 @@
     </foreach>
   </insert>
 
-  <select id="selectOneHour" resultMap="BaseResultMap" >
+  <select id="selectTwoHour" resultMap="BaseResultMap" >
     select
     <include refid="Base_Column_List" />
-    from j_stock_datas_m
+    from j_stock_datas_m15
     where 1=1
     <![CDATA[
     and data_time <= now()
     ]]>
-    ORDER BY data_time ASC limit 100
+    ORDER BY data_time ASC limit 40
   </select>
 
   <select id="selectOneFreshData" resultMap="BaseResultMap" >
     select
     <include refid="Base_Column_List" />
-    from j_stock_datas_m
+    from j_stock_datas_m15
     where 1=1
     ORDER BY data_time DESC limit 1
   </select>
 
   <!--<update id="updateByPrimaryKey" parameterType="com.hiveview.entity.StockData" >
-    update j_stock_datas_m
+    update j_stock_datas_m15
     set product_id = #{productId},
       price = #{price},
       change_quantity = #{changeQuantity},

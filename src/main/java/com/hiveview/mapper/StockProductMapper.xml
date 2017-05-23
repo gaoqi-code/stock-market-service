@@ -3,12 +3,14 @@
 <mapper namespace="com.hiveview.dao.StockProductMapperDao" >
   <resultMap id="BaseResultMap" type="com.hiveview.entity.StockProduct" >
     <id column="id" property="id"  />
-    <result column="product_type"  />
-    <result column="product_name"  />
+    <result column="product_type" property="productType" />
+    <result column="product_name"  property="productName"/>
+    <result column="status"  property="status"/>
+
   </resultMap>
 
   <sql id="Base_Column_List" >
-    id, product_type, product_name
+    id, product_type, product_name,status
   </sql>
 
   <select id="selectByPrimaryKey" resultMap="BaseResultMap"  >
@@ -16,6 +18,13 @@
     <include refid="Base_Column_List" />
     from j_stock_product
     where id = #{id}
+  </select>
+
+  <select id="getSellingProducts" resultMap="BaseResultMap"  >
+    select
+    <include refid="Base_Column_List" />
+    from j_stock_product
+    where status=1 limit 3
   </select>
 
   <select id="getProuctByType" resultMap="BaseResultMap"  >

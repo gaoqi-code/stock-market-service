@@ -63,7 +63,7 @@
     <![CDATA[
     and data_time <= now()
     ]]>
-    ORDER BY data_time ASC
+    ORDER BY data_time ASC limit 40
   </select>
 
   <select id="selectOneFreshData" resultMap="BaseResultMap" >
