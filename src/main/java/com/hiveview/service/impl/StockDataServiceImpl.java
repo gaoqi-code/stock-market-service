@@ -28,8 +28,8 @@ public class StockDataServiceImpl implements StockDataService {
     }
 
     @Override
-    public StockData getOneFreshDataForM() {
-        return stockDataMapperDao.selectOneFreshData();
+    public List<StockData> getInitDatasForM1() {
+        return null;
     }
 
     @Override
@@ -38,8 +38,28 @@ public class StockDataServiceImpl implements StockDataService {
     }
 
     @Override
+    public List<StockData> getInitDatasForM15() {
+        return null;
+    }
+
+    @Override
+    public StockData getOneFreshDataForM() {
+        return stockDataMapperDao.selectOneFreshData();
+    }
+
+    @Override
+    public StockData getOneFreshDataForM1() {
+        return null;
+    }
+
+    @Override
     public StockData getOneFreshDataForM5() {
         return stockDataM5MapperDao.selectOneFreshData();
+    }
+
+    @Override
+    public StockData getOneFreshDataForM15() {
+        return null;
     }
 
     @Override

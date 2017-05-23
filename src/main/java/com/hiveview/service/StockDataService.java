@@ -17,9 +17,9 @@ public interface StockDataService {
     List<StockData> getInitDatasForM();
 
     /**
-     * 查询分时线最新数据
+     * 1分钟K线初始化数据
      */
-    StockData getOneFreshDataForM();
+    List<StockData> getInitDatasForM1();
 
     /**
      * 5分钟K线初始化数据
@@ -27,9 +27,29 @@ public interface StockDataService {
     List<StockData> getInitDatasForM5();
 
     /**
+     * 15分钟K线初始化数据
+     */
+    List<StockData> getInitDatasForM15();
+
+    /**
+     * 查询分时线最新数据
+     */
+    StockData getOneFreshDataForM();
+
+    /**
+     * 查询1分钟最新数据
+     */
+    StockData getOneFreshDataForM1();
+
+    /**
      * 5分钟K线最新数据
      */
     StockData getOneFreshDataForM5();
+
+    /**
+     * 15分钟K线最新数据
+     */
+    StockData getOneFreshDataForM15();
 
     /**
      *批量保存
