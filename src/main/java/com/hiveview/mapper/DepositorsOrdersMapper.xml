@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hiveview.dao.DepositorsOrdersMapperDao" >
+  <resultMap id="BaseResultMap" type="com.hiveview.entity.DepositorsOrders" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId"  />
+    <result column="order_no" property="orderNo"  />
+    <result column="balance" property="balance"  />
+    <result column="amount" property="amount"  />
+    <result column="fee_amount" property="feeAmount"  />
+    <result column="add_time" property="addTime" />
+    <result column="update_time" property="updateTime" />
+    <result column="pay_time" property="payTime" />
+    <result column="pay_amount" property="payAmount" />
+    <result column="pay_order_no" property="payOrderNo" />
+    <result column="receive_card" property="receiveCard"  />
+    <result column="receive_bank" property="receiveBank" />
+    <result column="receive_name" property="receiveName" />
+    <result column="receive_mobile" property="receiveMobile" />
+    <result column="order_status" property="orderStatus" />
+    <result column="rejection" property="rejection" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, order_no, balance, amount, fee_amount, add_time, update_time, pay_time, 
+    pay_amount, pay_order_no, receive_card, receive_bank, receive_name, receive_mobile, 
+    order_status, rejection
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="int" >
+    select 
+    <include refid="Base_Column_List" />
+    from j_depositors_orders
+    where id = #{id}
+  </select>
+
+  <select id="selectByUserId" resultMap="BaseResultMap" parameterType="int" >
+    select
+    <include refid="Base_Column_List" />
+    from j_depositors_orders
+    where id = #{userId}
+  </select>
+
+  <insert id="save" parameterType="com.hiveview.entity.DepositorsOrders" >
+    insert into j_depositors_orders
+    (
+      id,
+      user_id,
+      order_no,
+      balance,
+      amount,
+      fee_amount,
+      add_time,
+      update_time,
+      pay_time,
+      pay_amount,
+      pay_order_no,
+      receive_card,
+      receive_bank,
+      receive_name,
+      receive_mobile,
+      order_status,
+      rejection
+      )
+    values (
+      #{id},
+      #{userId},
+      #{orderNo},
+      #{balance},
+      #{amount},
+      #{feeAmount},
+      #{addTime},
+      #{updateTime},
+      #{payTime},
+      #{payAmount},
+      #{payOrderNo},
+      #{receiveCard},
+      #{receiveBank},
+      #{receiveName},
+      #{receiveMobile},
+      #{orderStatus},
+      #{rejection}
+      )
+  </insert>
+
+  <update id="update" parameterType="com.hiveview.entity.DepositorsOrders" >
+    update j_depositors_orders
+    <set >
+      <if test="orderNo != null" >
+        order_no = #{orderNo},
+      </if>
+      <if test="balance != null" >
+        balance = #{balance},
+      </if>
+      <if test="amount != null" >
+        amount = #{amount},
+      </if>
+      <if test="feeAmount != null" >
+        fee_amount = #{feeAmount},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime},
+      </if>
+      <if test="payTime != null" >
+        pay_time = #{payTime},
+      </if>
+      <if test="payAmount != null" >
+        pay_amount = #{payAmount},
+      </if>
+      <if test="payOrderNo != null" >
+        pay_order_no = #{payOrderNo},
+      </if>
+      <if test="receiveCard != null" >
+        receive_card = #{receiveCard},
+      </if>
+      <if test="receiveBank != null" >
+        receive_bank = #{receiveBank},
+      </if>
+      <if test="receiveName != null" >
+        receive_name = #{receiveName},
+      </if>
+      <if test="receiveMobile != null" >
+        receive_mobile = #{receiveMobile},
+      </if>
+      <if test="orderStatus != null" >
+        order_status = #{orderStatus},
+      </if>
+      <if test="rejection != null" >
+        rejection = #{rejection},
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+
+</mapper>
