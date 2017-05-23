@@ -11,18 +11,12 @@
     <result column="add_time" property="addTime" />
     <result column="update_time" property="updateTime" />
     <result column="pay_time" property="payTime" />
-    <result column="pay_amount" property="payAmount" />
     <result column="pay_order_no" property="payOrderNo" />
-    <result column="receive_card" property="receiveCard"  />
-    <result column="receive_bank" property="receiveBank" />
-    <result column="receive_name" property="receiveName" />
-    <result column="receive_mobile" property="receiveMobile" />
     <result column="order_status" property="orderStatus" />
     <result column="rejection" property="rejection" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, user_id, order_no, balance, amount, fee_amount, add_time, update_time, pay_time, 
-    pay_amount, pay_order_no, receive_card, receive_bank, receive_name, receive_mobile, 
+    id, user_id, order_no, balance, amount, fee_amount, add_time, update_time, pay_time,  pay_order_no,
     order_status, rejection
   </sql>
 
@@ -52,12 +46,7 @@
       add_time,
       update_time,
       pay_time,
-      pay_amount,
       pay_order_no,
-      receive_card,
-      receive_bank,
-      receive_name,
-      receive_mobile,
       order_status,
       rejection
       )
@@ -71,12 +60,7 @@
       #{addTime},
       #{updateTime},
       #{payTime},
-      #{payAmount},
       #{payOrderNo},
-      #{receiveCard},
-      #{receiveBank},
-      #{receiveName},
-      #{receiveMobile},
       #{orderStatus},
       #{rejection}
       )
@@ -103,23 +87,8 @@
       <if test="payTime != null" >
         pay_time = #{payTime},
       </if>
-      <if test="payAmount != null" >
-        pay_amount = #{payAmount},
-      </if>
       <if test="payOrderNo != null" >
         pay_order_no = #{payOrderNo},
-      </if>
-      <if test="receiveCard != null" >
-        receive_card = #{receiveCard},
-      </if>
-      <if test="receiveBank != null" >
-        receive_bank = #{receiveBank},
-      </if>
-      <if test="receiveName != null" >
-        receive_name = #{receiveName},
-      </if>
-      <if test="receiveMobile != null" >
-        receive_mobile = #{receiveMobile},
       </if>
       <if test="orderStatus != null" >
         order_status = #{orderStatus},

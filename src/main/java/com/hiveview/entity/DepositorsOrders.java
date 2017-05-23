@@ -34,17 +34,7 @@ public class DepositorsOrders {
 
     private Date payTime;
 
-    private BigDecimal payAmount;
-
     private String payOrderNo;
-
-    private String receiveCard;
-
-    private String receiveBank;
-
-    private String receiveName;
-
-    private String receiveMobile;
 
     private Integer orderStatus;
 
@@ -122,52 +112,12 @@ public class DepositorsOrders {
         this.payTime = payTime;
     }
 
-    public BigDecimal getPayAmount() {
-        return payAmount;
-    }
-
-    public void setPayAmount(BigDecimal payAmount) {
-        this.payAmount = payAmount;
-    }
-
     public String getPayOrderNo() {
         return payOrderNo;
     }
 
     public void setPayOrderNo(String payOrderNo) {
         this.payOrderNo = payOrderNo;
-    }
-
-    public String getReceiveCard() {
-        return receiveCard;
-    }
-
-    public void setReceiveCard(String receiveCard) {
-        this.receiveCard = receiveCard;
-    }
-
-    public String getReceiveBank() {
-        return receiveBank;
-    }
-
-    public void setReceiveBank(String receiveBank) {
-        this.receiveBank = receiveBank;
-    }
-
-    public String getReceiveName() {
-        return receiveName;
-    }
-
-    public void setReceiveName(String receiveName) {
-        this.receiveName = receiveName;
-    }
-
-    public String getReceiveMobile() {
-        return receiveMobile;
-    }
-
-    public void setReceiveMobile(String receiveMobile) {
-        this.receiveMobile = receiveMobile;
     }
 
     public Integer getOrderStatus() {
