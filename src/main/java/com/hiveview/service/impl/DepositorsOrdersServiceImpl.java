@@ -7,6 +7,8 @@ import com.hiveview.service.DepositorsOrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * ${DESCRIPTION}
  *
@@ -25,5 +27,10 @@ public class DepositorsOrdersServiceImpl implements DepositorsOrdersService {
     @Override
     public void update(DepositorsOrders depositorsOrders) {
         depositorsOrdersMapperDao.update(depositorsOrders);
+    }
+
+    @Override
+    public List<DepositorsOrders> getDepositorsOrdersByUserId(int userId) {
+        return depositorsOrdersMapperDao.selectByUserId(userId);
     }
 }

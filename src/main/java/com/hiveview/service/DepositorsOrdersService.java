@@ -2,6 +2,8 @@ package com.hiveview.service;
 
 import com.hiveview.entity.DepositorsOrders;
 
+import java.util.List;
+
 /**
  * ${DESCRIPTION}
  *
@@ -12,4 +14,7 @@ public interface DepositorsOrdersService {
     public void save(DepositorsOrders depositorsOrders);
 
     public void update(DepositorsOrders depositorsOrders);
+
+    public List<DepositorsOrders> getDepositorsOrdersByUserId(int userId);
+
 }

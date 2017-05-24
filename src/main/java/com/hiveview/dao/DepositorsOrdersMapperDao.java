@@ -3,6 +3,8 @@ package com.hiveview.dao;
 import com.hiveview.entity.DepositorsOrders;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface DepositorsOrdersMapperDao {
 
@@ -12,6 +14,6 @@ public interface DepositorsOrdersMapperDao {
 
     DepositorsOrders selectByPrimaryKey(Integer id);
 
-    DepositorsOrders selectByUserId(Integer userId);
+    List<DepositorsOrders> selectByUserId(Integer userId);
 
 }
