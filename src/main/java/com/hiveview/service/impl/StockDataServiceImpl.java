@@ -30,42 +30,42 @@ public class StockDataServiceImpl implements StockDataService {
 
 
     @Override
-    public List<StockData> getInitDatasForM() {
+    public List<StockData> getInitDatasForM(int productId) {
         return stockDataMapperDao.selectOneHour();
     }
 
     @Override
-    public List<StockData> getInitDatasForM1() {
+    public List<StockData> getInitDatasForM1(int productId) {
         return stockDataM1MapperDao.selectOneHour();
     }
 
     @Override
-    public List<StockData> getInitDatasForM5() {
+    public List<StockData> getInitDatasForM5(int productId) {
         return stockDataM5MapperDao.selectTwoHour();
     }
 
     @Override
-    public List<StockData> getInitDatasForM15() {
+    public List<StockData> getInitDatasForM15(int productId) {
         return stockDataM15MapperDao.selectTwoHour();
     }
 
     @Override
-    public StockData getOneFreshDataForM() {
+    public StockData getOneFreshDataForM(int productId) {
         return stockDataMapperDao.selectOneFreshData();
     }
 
     @Override
-    public StockData getOneFreshDataForM1() {
+    public StockData getOneFreshDataForM1(int productId) {
         return stockDataM1MapperDao.selectOneFreshData();
     }
 
     @Override
-    public StockData getOneFreshDataForM5() {
+    public StockData getOneFreshDataForM5(int productId) {
         return stockDataM5MapperDao.selectOneFreshData();
     }
 
     @Override
-    public StockData getOneFreshDataForM15() {
+    public StockData getOneFreshDataForM15(int productId) {
         return stockDataM15MapperDao.selectOneFreshData();
     }
 

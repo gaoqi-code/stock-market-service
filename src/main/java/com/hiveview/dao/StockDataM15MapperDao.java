@@ -1,6 +1,7 @@
 package com.hiveview.dao;
 
 import com.hiveview.entity.StockData;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,12 +15,12 @@ public interface StockDataM15MapperDao {
     /**
      * 查询最近两小时数据
      */
-    List<StockData> selectTwoHour();
+    List<StockData> selectTwoHour(@Param("productId") int productId);
 
     /**
      * 查询最新数据
      */
-    StockData selectOneFreshData();
+    StockData selectOneFreshData(@Param("productId") int productId);
 
 
    // int updateByPrimaryKey(StockData record);

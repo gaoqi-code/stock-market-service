@@ -14,42 +14,42 @@ public interface StockDataService {
     /**
      * 分时线初始化数据
      */
-    List<StockData> getInitDatasForM();
+    List<StockData> getInitDatasForM(int productId);
 
     /**
      * 1分钟K线初始化数据
      */
-    List<StockData> getInitDatasForM1();
+    List<StockData> getInitDatasForM1(int productId);
 
     /**
      * 5分钟K线初始化数据
      */
-    List<StockData> getInitDatasForM5();
+    List<StockData> getInitDatasForM5(int productId);
 
     /**
      * 15分钟K线初始化数据
      */
-    List<StockData> getInitDatasForM15();
+    List<StockData> getInitDatasForM15(int productId);
 
     /**
      * 查询分时线最新数据
      */
-    StockData getOneFreshDataForM();
+    StockData getOneFreshDataForM(int productId);
 
     /**
      * 查询1分钟最新数据
      */
-    StockData getOneFreshDataForM1();
+    StockData getOneFreshDataForM1(int productId);
 
     /**
      * 5分钟K线最新数据
      */
-    StockData getOneFreshDataForM5();
+    StockData getOneFreshDataForM5(int productId);
 
     /**
      * 15分钟K线最新数据
      */
-    StockData getOneFreshDataForM15();
+    StockData getOneFreshDataForM15(int productId);
 
     /**
      *批量保存
